@@ -1,0 +1,36 @@
+html,body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+}
+.hero.is-success {
+  background-image: url(principal.jpg);
+}
+.hero .nav, .hero.is-success .nav {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+input {
+  font-weight: 300;
+}
+p {
+  font-weight: 700;
+}
+strong{
+  color: white;
+}
+
+.insta{
+  color: #FF6F61;
+}
+
+.logo{
+    padding-bottom: 20px;
+}
+
+#ultimobox{
+    margin-top: -15px;
+    margin-left: 22%;
+    width: 700px;
+    height: 245px;
+}

@@ -1,0 +1,95 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap');
+</style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sipie</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/principal.css">
+</head>
+
+<body>
+    <section class="hero is-success is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column is-4 is-offset-4">
+                <img src="grafico\logo.png" height="175" width="175" class="logo">
+
+                <?php
+                    if (isset($_SESSION['status_cadastro'])):
+                ?>
+                <div class="notification is-success">
+                      <p>Cadastro efetuado!</p>
+                      <p>Faça login informando o seu usuário e senha.</p>
+                    </div>
+                <?php
+                    endif;
+                    unset($_SESSION['status_cadastro']);
+                ?>
+
+                    <?php
+                        if (isset($_SESSION['nao_autenticado'])):
+                    ?>
+                    <div class="notification is-danger" style="background-color: #E84D6E">
+                      <p>ERRO: Usuário ou senha inválidos.</p>
+                    </div>
+                    <?php
+                        endif;
+                        unset($_SESSION['nao_autenticado']);
+                    ?>
+                    <div class="box">
+                        <form action="login.php" method="POST">
+                            <div class="field">
+                                <div class="control">
+                                    <input name="usuario" name="text" class="input is-large" placeholder="Seu usuário" autofocus="">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input name="senha" class="input is-large" type="password" placeholder="Sua senha">
+                                </div>
+                            </div>
+                            <button type="submit" class="button is-block is-link is-large is-fullwidth">Entrar</button>
+                        </form>
+                        <br>
+                        <div>
+                        	<a href="chave.php" class="button is-primary is-medium is-fullwidth">
+                        		Cadastrar-se
+                        	</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+          <div class="content has-text-centered">
+            <font color=#FF6F61>
+              <p>
+                <a href=""><font color=#FF6F61>Instagram @portalsipie</font>
+                &nbsp;<img src="grafico/instagram.png" width=30px height=30px style="margin-bottom: -8px"></a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href=""><font color=#FF6F61>Facebook @portalsipie</font>
+                &nbsp;<img src="grafico/facebook.png" width=30px height=30px style="margin-bottom: -6px"></a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href=""><font color=#FF6F61>Twitter @portalsipie</font>
+                &nbsp;<img src="grafico/twitter.png" width=35px height=35px style="margin-bottom: -6px"></a>
+              </p>
+              <p><font size="2">
+              <a href="termos.php"><font color=#FF6F61>Termos de uso e política de privacidade.</a></font> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+                Portal Sipie Copyright © 2020 Todos os direitos reservados.
+              </p></font>
+            </font>
+          </div>
+      </footer>
+
+    </section>
+</body>
+</html>
